@@ -21,6 +21,15 @@ def ask_question():
         answer = "回答將稍後提供。"
         questions_answers.append({"question": question, "answer": answer})
         
+@app.route('/quiz', methods=['GET', 'POST'])
+def quiz_question():
+    if request.method == 'POST':
+        question = request.form['question']
+        
+        # Add a placeholder answer for simplicity; you can expand this later
+        answer = "回答將稍後提供。"
+        questions_answers.append({"question": question, "answer": answer})
+        
         return redirect('/')
     
     # Render the ask.html template when the user visits the page
@@ -28,3 +37,4 @@ def ask_question():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
+
